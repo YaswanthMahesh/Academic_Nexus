@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+<body>
+<h1 style="text-align:center">{{title}}</h1>
+<button type="button"><a href="{% url 'addstudentinfo' id %}"> + ADD STUDENTS</a></button><br>
+<br>
+<table class="table is-bordered is-hoverable is-fullwidth">
+    <tr>
+        <th>student name</th>
+        <th>college name</th>
+        <th>marks</th>
+        <td>Actions</td>
+    </tr>
+    {% for val in values %}
+        <tr>
+            <td>{{val.name}}</td>
+            <td>{{val.college__name}}</a></td>
+             <td>{{val.mocktest1__total}}</td>
+
+            <td><a href="{% url 'editstudent' val.id %}">edit</a> | <a href="{% url 'deletestudent' val.id %}"> delete </a></td>
+        </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
